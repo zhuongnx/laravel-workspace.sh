@@ -32,7 +32,7 @@ ENV LANG=en_US.UTF-8
 ENV TERM xterm
 
 ## Add the "PHP 7" ppa
-echo -e "$Cyan /n Add the PHP 7 ppa"
+echo -e "$Cyan \n Add the PHP 7 ppa"
 sudo add-apt-repository -y \
     ppa:ondrej/php
 
