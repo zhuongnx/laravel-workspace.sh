@@ -23,13 +23,13 @@ echo -e "$Cyan \n Updating System.. $Color_Off"
 sudo  apt-get update && apt-get install -y \
     software-properties-common locales
     
-RUN locale-gen en_US.UTF-8
+locale-gen en_US.UTF-8
 
-ENV LANGUAGE=en_US.UTF-8
-ENV LC_ALL=en_US.UTF-8
-ENV LC_CTYPE=UTF-8
-ENV LANG=en_US.UTF-8
-ENV TERM xterm
+LANGUAGE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+LC_CTYPE=UTF-8
+LANG=en_US.UTF-8
+TERM xterm
 
 ## Add the "PHP 7" ppa
 echo -e "$Cyan \n Add the PHP 7 ppa"
