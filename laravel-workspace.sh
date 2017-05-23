@@ -20,7 +20,7 @@ Cyan='\033[0;36m'         # Cyan
 
 # Update packages and Upgrade system, Install "software-properties-common" (for the "add-apt-repository")
 echo -e "$Cyan \n Updating System.. $Color_Off"
-sudo  apt-get update && apt-get install -y \
+sudo  apt-get update && sudo apt-get install -y \
     software-properties-common locales
     
 locale-gen en_US.UTF-8
