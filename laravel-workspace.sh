@@ -134,4 +134,4 @@ echo -e "$Green \n Permissions have been set $Color_Off"
 # Restart Nginx
 echo -e "$Cyan \n Restarting Nginx $Color_Off"
 sudo service nginx restart
-sudo service php-fpm restart
+sudo service php7.0-fpm restart
