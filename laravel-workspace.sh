@@ -88,20 +88,20 @@ sudo echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/laravel/vendor
 # Install Nodejs
 echo -e "$Cyan \n Install Nodejs $Color_Off"
 sudo curl -sL https://deb.nodesource.com/setup_7.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install -g gulp-cli bower eslint babel-eslint eslint-plugin-react yarn
+    && sudo apt-get install -y nodejs \
+    && sduo npm install -g gulp-cli bower eslint babel-eslint eslint-plugin-react yarn
 
 # Install SASS
 echo -e "$Cyan \n Install SASS $Color_Off"
 sudo apt-get install -y ruby \
-    && gem install sass
+    && sudo gem install sass
 
 # Install Composer, PHPCS and Framgia Coding Standard,
 # PHPMetrics, PHPDepend, PHPMessDetector, PHPCopyPasteDetector
 echo -e "$Cyan \n Install Composer, PHPCS and Framgia Coding Standard, PHPMetrics, PHPDepend, PHPMessDetector, PHPCopyPasteDetector $Color_Off"
 sudo curl -s http://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer \
-    && composer global require 'squizlabs/php_codesniffer=2.9' \
+    && sudo mv composer.phar /usr/local/bin/composer \
+    && sudo composer global require 'squizlabs/php_codesniffer=2.9' \
         'phpmetrics/phpmetrics' \
         'pdepend/pdepend' \
         'phpmd/phpmd' \
@@ -111,10 +111,10 @@ sudo curl -s http://getcomposer.org/installer | php \
 
 # Create symlink
 sudo ln -s /root/.composer/vendor/bin/phpcs /usr/bin/phpcs \
-    && ln -s /root/.composer/vendor/bin/pdepend /usr/bin/pdepend \
-    && ln -s /root/.composer/vendor/bin/phpmetrics /usr/bin/phpmetrics \
-    && ln -s /root/.composer/vendor/bin/phpmd /usr/bin/phpmd \
-    && ln -s /root/.composer/vendor/bin/phpcpd /usr/bin/phpcpd
+    && sudo ln -s /root/.composer/vendor/bin/pdepend /usr/bin/pdepend \
+    && sudo ln -s /root/.composer/vendor/bin/phpmetrics /usr/bin/phpmetrics \
+    && sudo ln -s /root/.composer/vendor/bin/phpmd /usr/bin/phpmd \
+    && sudo ln -s /root/.composer/vendor/bin/phpcpd /usr/bin/phpcpd
 
 echo -e "$Cyan \n Installing MySQL $Color_Off"
 sudo apt-get install mysql-server mysql-client libmysqlclient15.dev -y
