@@ -76,30 +76,30 @@ sudo apt-get update && apt-get install -y --force-yes \
 
 # remove load xdebug extension (only load on phpunit command)
 echo -e "$Cyan \n remove load xdebug extension (only load on phpunit command) $Color_Off"
-RUN sed -i 's/^/;/g' /etc/php/7.0/cli/conf.d/20-xdebug.ini
+sudo sed -i 's/^/;/g' /etc/php/7.0/cli/conf.d/20-xdebug.ini
 
 # Add bin folder of composer to PATH.
 echo -e "$Cyan \n Add bin folder of composer to PATH $Color_Off"
-RUN echo "export PATH=${PATH}:/var/www/laravel/vendor/bin:/root/.composer/vendor/bin" >> ~/.bashrc
+sudo echo "export PATH=${PATH}:/var/www/laravel/vendor/bin:/root/.composer/vendor/bin" >> ~/.bashrc
 
 # Load xdebug Zend extension with phpunit command
-RUN echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/laravel/vendor/bin/phpunit'" >> ~/.bashrc
+sudo echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/laravel/vendor/bin/phpunit'" >> ~/.bashrc
 
 # Install Nodejs
 echo -e "$Cyan \n Install Nodejs $Color_Off"
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+sudo curl -sL https://deb.nodesource.com/setup_7.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g gulp-cli bower eslint babel-eslint eslint-plugin-react yarn
 
 # Install SASS
 echo -e "$Cyan \n Install SASS $Color_Off"
-RUN apt-get install -y ruby \
+sudo apt-get install -y ruby \
     && gem install sass
 
 # Install Composer, PHPCS and Framgia Coding Standard,
 # PHPMetrics, PHPDepend, PHPMessDetector, PHPCopyPasteDetector
 echo -e "$Cyan \n Install Composer, PHPCS and Framgia Coding Standard, PHPMetrics, PHPDepend, PHPMessDetector, PHPCopyPasteDetector $Color_Off"
-RUN curl -s http://getcomposer.org/installer | php \
+sudo curl -s http://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && composer global require 'squizlabs/php_codesniffer=2.9' \
         'phpmetrics/phpmetrics' \
@@ -110,7 +110,7 @@ RUN curl -s http://getcomposer.org/installer | php \
     && git clone https://github.com/wataridori/framgia-php-codesniffer.git Framgia
 
 # Create symlink
-RUN ln -s /root/.composer/vendor/bin/phpcs /usr/bin/phpcs \
+sudo ln -s /root/.composer/vendor/bin/phpcs /usr/bin/phpcs \
     && ln -s /root/.composer/vendor/bin/pdepend /usr/bin/pdepend \
     && ln -s /root/.composer/vendor/bin/phpmetrics /usr/bin/phpmetrics \
     && ln -s /root/.composer/vendor/bin/phpmd /usr/bin/phpmd \
