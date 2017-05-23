@@ -65,6 +65,7 @@ sudo apt-get update && apt-get install -y --force-yes \
         xz-utils \
         sqlite3 \
         libsqlite3-dev \
+        nginx \
         git \
         curl \
         vim \
@@ -133,3 +134,4 @@ echo -e "$Green \n Permissions have been set $Color_Off"
 # Restart Nginx
 echo -e "$Cyan \n Restarting Nginx $Color_Off"
 sudo service nginx restart
+sudo service php-fpm restart
